@@ -1,0 +1,410 @@
+:root{
+  --bg:#0b0f17;
+  --panel:#101a2b;
+  --text:#eef3ff;
+  --muted:#b8c2dd;
+  --line:rgba(255,255,255,.12);
+  --accent:#b7cc00;
+  --accent2:#7df3c7;
+  --max:980px;
+  --radius:16px;
+  --shadow: 0 14px 40px rgba(0,0,0,.35);
+  --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+}
+
+*{ box-sizing:border-box; }
+
+html, body{ height:100%; }
+
+body{
+  margin:0;
+  padding:0;
+  min-height:100vh;
+  font-family:var(--font);
+  color:var(--text);
+  line-height:1.6;
+  background:
+    radial-gradient(1200px 600px at 20% 0%, rgba(183,204,0,.18), transparent 55%),
+    radial-gradient(900px 500px at 90% 15%, rgba(125,243,199,.12), transparent 50%),
+    var(--bg);
+}
+
+a{ color:inherit; text-decoration:none; }
+a:hover{ text-decoration:underline; }
+
+/* ===== Sticky Header/Nav ===== */
+header{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(11,15,23,.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 14px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+}
+
+.brand{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+.brand strong{ font-size:16px; letter-spacing:.2px; }
+.brand span{ font-size:12px; color:var(--muted); }
+
+.links{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.links a{
+  font-size:13px;
+  color:var(--muted);
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid transparent;
+  transition: background .15s ease, border-color .15s ease, color .15s ease, transform .15s ease;
+}
+.links a:hover{
+  border-color:var(--line);
+  background:rgba(255,255,255,.04);
+  color:var(--text);
+  text-decoration:none;
+}
+
+/* ===== Main layout ===== */
+main{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 28px 18px 80px;
+  display:grid;
+  gap: 18px;
+}
+
+/* ===== Hero ===== */
+.hero{
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 26px 22px;
+  display:grid;
+  gap: 12px;
+}
+
+.hero h1{
+  margin:0;
+  font-size: 34px;
+  line-height: 1.15;
+  letter-spacing: .2px;
+}
+
+.subtitle{
+  margin:0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Pills (used in homepage hero) */
+.pillrow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top: 6px;
+}
+.pill{
+  font-size:12px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.03);
+  padding: 8px 10px;
+  border-radius: 999px;
+  color: var(--text);
+}
+
+/* ===== Cards/Sections ===== */
+section.card{
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 18px;
+}
+
+section.card h2{
+  margin: 0 0 10px;
+  font-size: 18px;
+  letter-spacing: .2px;
+}
+
+.muted{ color: var(--muted); }
+
+/* Clean list */
+ul.clean{
+  margin: 10px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+ul.clean li{ margin: 7px 0; }
+
+/* ===== Buttons ===== */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+
+.btn.primary{
+  border-color: rgba(183,204,0,.65);
+  background: rgba(183,204,0,.14);
+}
+
+.btn:hover{
+  transform: translateY(-1px);
+  text-decoration:none;
+}
+
+/* Two-column grid */
+.grid{
+  display:grid;
+  gap: 18px;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: start;
+}
+@media (max-width: 920px){
+  .grid{ grid-template-columns: 1fr; }
+  .hero h1{ font-size: 30px; }
+}
+
+/* ===== Timeline: Experience Cards ===== */
+.timeline{
+  display: grid;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.xp-card{
+  display:grid;
+  grid-template-columns:64px 1fr;
+  gap:16px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+}
+
+.xp-logo{
+  width:64px; height:64px;
+  border-radius:14px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  position:relative;
+}
+.xp-logo img{ width:100%; height:100%; object-fit:cover; }
+
+.xp-logo.logo-fallback::after{
+  content: attr(data-fallback);
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  color: rgba(234,240,255,0.92);
+}
+
+.xp-top{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:baseline;
+  flex-wrap:wrap;
+}
+
+.xp-title{ font-size:16px; line-height:1.4; }
+.xp-client{ margin-top:4px; font-size:13px; color: rgba(234,240,255,0.68); }
+.xp-date{ font-size:13px; color: rgba(234,240,255,0.68); white-space:nowrap; }
+
+.xp-bullets{
+  margin: 12px 0 12px;
+  padding-left: 18px;
+  color: rgba(234,240,255,0.86);
+}
+.xp-bullets li{ margin:6px 0; line-height:1.55; }
+
+.xp-tags{ display:flex; flex-wrap:wrap; gap:8px; }
+.tag{
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: rgba(234,240,255,0.86);
+}
+
+@media (max-width:560px){
+  .xp-card{ grid-template-columns:52px 1fr; }
+  .xp-logo{ width:52px; height:52px; border-radius:12px; }
+}
+
+/* ===== Simple Timeline Item (used in contact education page) ===== */
+.t-item{
+  position: relative;
+  padding: 12px 12px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255,255,255,.02);
+}
+.topline{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.role{ font-weight: 800; letter-spacing:.2px; }
+.meta{ font-size: 12px; color: var(--muted); white-space:nowrap; }
+
+/* ===== Contact line (used in contact page) ===== */
+.contactline{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 14px;
+  align-items:center;
+}
+
+/* ===== Footer Options ===== */
+/* Option A: Professional footer (if you use .footer / .footer-inner) */
+.footer{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 24px 18px 34px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.footer-inner{
+  display:flex;
+  gap:16px;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+
+.footer-left{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.footer-title{
+  color: var(--text);
+  font-weight: 800;
+  letter-spacing: .2px;
+  font-size: 14px;
+}
+
+.footer-note{
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.footer-actions{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.icon-btn{
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  display:grid;
+  place-items:center;
+  transition: transform .15s ease, background .15s ease;
+}
+.icon-btn:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.08);
+  text-decoration:none;
+}
+
+.icon{
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  color: var(--text);
+  opacity: .9;
+}
+
+.btn.resume{
+  border-color: rgba(183,204,0,.65);
+  background: rgba(183,204,0,.12);
+}
+
+.footer-bottom{
+  margin-top: 14px;
+  display:flex;
+  justify-content:space-between;
+  gap: 12px;
+  flex-wrap:wrap;
+  font-size: 12px;
+  color: rgba(184,194,221,.85);
+}
+.footer-bottom a{
+  color: rgba(184,194,221,.95);
+}
+
+/* Option B: Minimal icon footer (if you use .footer-mini) */
+.footer-mini{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 16px 18px;
+  border-top: 1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px;
+  color: var(--muted);
+  font-size:12px;
+}
+
+.footer-icons{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+/* Smaller icon buttons for footer-mini */
+.footer-mini .icon-btn{
+  width:34px;
+  height:34px;
+  border-radius:10px;
+}
+.footer-mini .icon{
+  width:16px;
+  height:16px;
+}

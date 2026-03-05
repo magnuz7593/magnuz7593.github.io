@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Henry Canales | About & Experience</title>
+  <meta name="description" content="About Henry Canales — Work experience timeline." />
+
+  <style>
+    :root{
+      --bg:#0b0f17;
+      --panel:#101a2b;
+      --text:#eef3ff;
+      --muted:#b8c2dd;
+      --line:rgba(255,255,255,.12);
+      --accent:#b7cc00;
+      --max:980px;
+      --radius:16px;
+      --shadow: 0 14px 40px rgba(0,0,0,.35);
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 20% 0%, rgba(183,204,0,.18), transparent 55%),
+        radial-gradient(900px 500px at 90% 15%, rgba(125,243,199,.12), transparent 50%),
+        var(--bg);
+      line-height:1.6;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(11,15,23,.72);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+    .brand strong{ font-size:16px; letter-spacing:.2px; }
+    .brand span{ font-size:12px; color:var(--muted); }
+
+    .links{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .links a{
+      font-size:13px;
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid transparent;
+    }
+    .links a:hover{
+      border-color:var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+      text-decoration:none;
+    }
+
+    main{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 18px 80px;
+      display:grid;
+      gap: 18px;
+    }
+
+    .hero{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px 20px;
+      display:grid;
+      gap: 10px;
+    }
+    .hero h1{ margin:0; font-size:28px; line-height:1.2; }
+    .hero p{ margin:0; color:var(--muted); }
+
+    section.card{
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px 18px;
+    }
+    section.card h2{
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing: .2px;
+    }
+
+    /* Timeline Cards (from your original, cleaned up + consistent) */
+    .timeline { display: grid; gap: 14px; margin-top: 12px; }
+
+    .xp-card{
+      display:grid;
+      grid-template-columns:64px 1fr;
+      gap:16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+    }
+
+    .xp-logo{
+      width:64px; height:64px;
+      border-radius:14px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+      position:relative;
+    }
+    .xp-logo img{ width:100%; height:100%; object-fit:cover; }
+
+    /* Fallback if image missing */
+    .xp-logo.logo-fallback::after{
+      content: attr(data-fallback);
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      color: rgba(234,240,255,0.92);
+    }
+
+    .xp-top{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:baseline;
+      flex-wrap:wrap;
+    }
+
+    .xp-title{ font-size:16px; line-height:1.4; }
+    .xp-client{ margin-top:4px; font-size:13px; color: rgba(234,240,255,0.68); }
+    .xp-date{ font-size:13px; color: rgba(234,240,255,0.68); white-space:nowrap; }
+
+    .xp-bullets{
+      margin: 12px 0 12px;
+      padding-left: 18px;
+      color: rgba(234,240,255,0.86);
+    }
+    .xp-bullets li{ margin:6px 0; line-height:1.55; }
+
+    .xp-tags{ display:flex; flex-wrap:wrap; gap:8px; }
+    .tag{
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: rgba(234,240,255,0.86);
+    }
+
+    @media (max-width:560px){
+      .xp-card{ grid-template-columns:52px 1fr; }
+      .xp-logo{ width:52px; height:52px; border-radius:12px; }
+    }
+
+    footer{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 22px 18px 30px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Same nav style as homepage; connect using index.html -->
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <strong>Henry Canales</strong>
+        <span>Customer Support • VA • Risk & Compliance • Sales Support</span>
+      </div>
+
+      <nav class="links" aria-label="Primary navigation">
+        <!-- Make sure your homepage file is named index.html -->
+        <a href="index.html">Home</a>
+        <a href="#experience">Experience</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>About Me & Work Experience</h1>
+      <p>Customer Support • Virtual Assistant • Operations • Risk & Compliance</p>
+    </section>
+
+    <section id="experience" class="card">
+      <h2>Work Experience</h2>
+      <p style="margin:0; color:var(--muted);">
+        Timeline of roles and accounts supported (title + company in <strong>bold</strong>).
+      </p>
+
+      <div class="timeline">
+
+        <!-- 1 -->
+        <article class="xp-card">
+          <div class="xp-logo" aria-hidden="true">
+            <!-- IMPORTANT: Use relative paths, not C:\... -->
+            <img src="assets/focus_virtual_assistants_logo.jpg" alt="Focus Virtual Assistants logo"
+                 onerror="this.style.display='none'; this.parentElement.classList.add('logo-fallback'); this.parentElement.dataset.fallback='FVA';" />
+          </div>
+
+          <div class="xp-content">
+            <div class="xp-top">
+              <div class="xp-title">
+                <strong>Customer Service Virtual Assistant</strong> — <strong>Focus Virtual Assistants</strong>
+                <div class="xp-client">Client: CozyEarth</div>
+              </div>
+              <div class="xp-date">Sep 2024 – Feb 2026</div>
+            </div>
+
+            <ul class="xp-bullets">
+              <li>Provided end-to-end customer and business support via calls, email, and chat.</li>
+              <li>Handled product inquiries, order processing, returns, and claims with timely resolution.</li>
+              <li>Maintained accurate records while adhering to client procedures and workflows.</li>
+            </ul>
+
+            <div class="xp-tags">
+              <span class="tag">Phone</span><span class="tag">Email</span><span class="tag">Chat</span>
+              <span class="tag">Order Management</span><span class="tag">Returns/Claims</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="xp-card">
+          <div class="xp-logo" aria-hidden="true">
+            <img src="C:\My Website\assets\Accenture logo.jpg" alt="Accenture logo"
+                 onerror="this.style.display='none'; this.parentElement.classList.add('logo-fallback'); this.parentElement.dataset.fallback='ACN';" />
+          </div>
+
+          <div class="xp-content">
+            <div class="xp-top">
+              <div class="xp-title">
+                <strong>Fraud and Risk Analyst</strong> — <strong>Accenture Philippines</strong>
+              </div>
+              <div class="xp-date">Jan 2024 – Sep 2024</div>
+            </div>
+
+            <ul class="xp-bullets">
+              <li>Reviewed and validated identification and documentation to ensure compliance with policy.</li>
+              <li>Coordinated with internal teams to resolve discrepancies and support smooth operations.</li>
+              <li>Provided inputs that improved operational workflows.</li>
+            </ul>
+
+            <div class="xp-tags">
+              <span class="tag">Risk Review</span><span class="tag">Compliance</span><span class="tag">Documentation</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="xp-card">
+          <div class="xp-logo" aria-hidden="true">
+            <img src="C:\My Website\assets\Peak_Support_Customer_Service__Logo.jpg" alt="Peak Support logo"
+                 onerror="this.style.display='none'; this.parentElement.classList.add('logo-fallback'); this.parentElement.dataset.fallback='PS';" />
+          </div>
+
+          <div class="xp-content">
+            <div class="xp-top">
+              <div class="xp-title">
+                <strong>Customer Service Associate</strong> — <strong>Peak Support Global Enterprise</strong>
+                <div class="xp-client">Account: Electrify America</div>
+              </div>
+              <div class="xp-date">Aug 2023 – Nov 2023</div>
+            </div>
+
+            <ul class="xp-bullets">
+              <li>Supported customers with concerns related to EV chargers and charging experience.</li>
+              <li>Assisted with manual resetting of charging stations within the dedicated areas.</li>
+              <li>Provided rates and roadside assistance information as needed.</li>
+            </ul>
+
+            <div class="xp-tags">
+              <span class="tag">Customer Support</span><span class="tag">Troubleshooting</span><span class="tag">EV Support</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4 -->
+        <article class="xp-card">
+          <div class="xp-logo" aria-hidden="true">
+            <img src="C:\My Website\assets\concentrix-logo.png"
+                 onerror="this.style.display='none'; this.parentElement.classList.add('logo-fallback'); this.parentElement.dataset.fallback='CNX';" />
+          </div>
+
+          <div class="xp-content">
+            <div class="xp-top">
+              <div class="xp-title">
+                <strong>Sales Support Representative</strong> — <strong>Concentrix Philippines</strong>
+                <div class="xp-client">Account: TD SYNNEX</div>
+              </div>
+              <div class="xp-date">Nov 2022 – Apr 2023</div>
+            </div>
+
+            <ul class="xp-bullets">
+              <li>Provided quotes and sales support for business needs.</li>
+              <li>Coordinated with logistics for rates and freight information.</li>
+              <li>Collaborated with internal teams to ensure accurate pricing, documentation, and compliance.</li>
+            </ul>
+
+            <div class="xp-tags">
+              <span class="tag">Sales Ops</span><span class="tag">Quoting</span><span class="tag">Logistics</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5 -->
+        <article class="xp-card">
+          <div class="xp-logo" aria-hidden="true">
+            <img src="C:\My Website\assets\tdcxlogo1709280137.jpeg"
+                 onerror="this.style.display='none'; this.parentElement.classList.add('logo-fallback'); this.parentElement.dataset.fallback='TDCX';" />
+          </div>
+
+          <div class="xp-content">
+            <div class="xp-top">
+              <div class="xp-title">
+                <strong>Risk Analyst</strong> — <strong>TDCX Malaysia</strong>
+                <div class="xp-client">Account: Stripe</div>
+              </div>
+              <div class="xp-date">Apr 2022 – Oct 2022</div>
+            </div>
+
+            <ul class="xp-bullets">
+              <li>Provided backend business support through compliance checks.</li>
+              <li>Handled KYC process for small to medium businesses.</li>
+              <li>Partnered with teams for research, account reviews, and internal reporting.</li>
+            </ul>
+
+            <div class="xp-tags">
+              <span class="tag">KYC</span><span class="tag">Compliance</span><span class="tag">Risk</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6 -->
+        <article class="xp-card">
+          <div class="xp-logo" aria-hidden="true">
+            <img src="C:\My Website\assets\Iqorlogo.png"
+                 onerror="this.style.display='none'; this.parentElement.classList.add('logo-fallback'); this.parentElement.dataset.fallback='IQ';" />
+          </div>
+
+          <div class="xp-content">
+            <div class="xp-top">
+              <div class="xp-title">
+                <strong>Senior Associate</strong> — <strong>iQor Dasma</strong>
+                <div class="xp-client">Account: T-Mobile</div>
+              </div>
+              <div class="xp-date">Jun 2021 – Mar 2022</div>
+            </div>
+
+            <ul class="xp-bullets">
+              <li>Handled account requests and updates.</li>
+              <li>Provided support on line add-ons and account retention.</li>
+              <li>Helped customers with billing, rebates, and upgrades.</li>
+            </ul>
+
+            <div class="xp-tags">
+              <span class="tag">Telecom</span><span class="tag">Billing</span><span class="tag">Retention</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 7 -->
+        <article class="xp-card">
+          <div class="xp-logo" aria-hidden="true">
+            <img src="C:\My Website\assets\Conduit Logo.jpg"
+                 onerror="this.style.display='none'; this.parentElement.classList.add('logo-fallback'); this.parentElement.dataset.fallback='CDT';" />
+          </div>
+
+          <div class="xp-content">
+            <div class="xp-top">
+              <div class="xp-title">
+                <strong>Prepaid Service Representative</strong> — <strong>Conduit</strong>
+                <div class="xp-client">Account: Verizon</div>
+              </div>
+              <div class="xp-date">Mar 2021 – Jun 2021</div>
+            </div>
+
+            <ul class="xp-bullets">
+              <li>Supported customers with general inquiries.</li>
+              <li>Worked with internal teams on eligibility for upgrades.</li>
+              <li>Handled top-up and refund requests.</li>
+            </ul>
+
+            <div class="xp-tags">
+              <span class="tag">Prepaid</span><span class="tag">Account Support</span><span class="tag">Refunds</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8 -->
+        <article class="xp-card">
+          <div class="xp-logo" aria-hidden="true">
+            <img src="C:\My Website\assets\Results cx logo.png"
+                 onerror="this.style.display='none'; this.parentElement.classList.add('logo-fallback'); this.parentElement.dataset.fallback='RCX';" />
+          </div>
+
+          <div class="xp-content">
+            <div class="xp-top">
+              <div class="xp-title">
+                <strong>Members & Providers Service Associate</strong> — <strong>ResultsCX</strong>
+                <div class="xp-client">Account: Wellcare/Centene</div>
+              </div>
+              <div class="xp-date">Oct 2016 – Feb 2020</div>
+            </div>
+
+            <ul class="xp-bullets">
+              <li>Supported customers with pharmacy concerns and formulary guidance.</li>
+              <li>Assisted providers with claims and benefit confirmation.</li>
+              <li>Helped members and providers understand plan/insurance coverage.</li>
+            </ul>
+
+            <div class="xp-tags">
+              <span class="tag">Healthcare</span><span class="tag">Claims</span><span class="tag">Benefits</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 9 -->
+        <article class="xp-card">
+          <div class="xp-logo" aria-hidden="true">
+            <img src="C:\My Website\assets\alorica-philippines-1200px-logo.png"
+                 onerror="this.style.display='none'; this.parentElement.classList.add('logo-fallback'); this.parentElement.dataset.fallback='ALO';" />
+          </div>
+
+          <div class="xp-content">
+            <div class="xp-top">
+              <div class="xp-title">
+                <strong>Account Executive</strong> — <strong>Alorica</strong>
+                <div class="xp-client">Account: Comcast</div>
+              </div>
+              <div class="xp-date">Aug 2015 – Aug 2016</div>
+            </div>
+
+            <ul class="xp-bullets">
+              <li>Supported customers with account inquiries and service updates.</li>
+              <li>Coordinated with internal teams for upgrades and rebates eligibility.</li>
+              <li>Handled troubleshooting for modem and cable boxes.</li>
+            </ul>
+
+            <div class="xp-tags">
+              <span class="tag">Technical Support</span><span class="tag">Account Updates</span><span class="tag">Troubleshooting</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Henry Canales • About & Experience
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

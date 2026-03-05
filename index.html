@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Henry Canales | Portfolio</title>
+  <meta name="description" content="Henry Canales — Customer Support, Virtual Assistance, Risk & Compliance, Sales Support. Portfolio homepage." />
+
+  <style>
+    :root{
+      --bg: #0b0f17;
+      --panel: #101a2b;
+      --text: #eef3ff;
+      --muted: #b8c2dd;
+      --line: rgba(255,255,255,.12);
+      --accent: #b7cc00; /* olive vibe */
+      --accent2:#7df3c7;
+      --max: 980px;
+      --radius: 16px;
+      --shadow: 0 14px 40px rgba(0,0,0,.35);
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+    }
+
+    *{ box-sizing: border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: var(--font);
+      background: radial-gradient(1200px 600px at 20% 0%, rgba(183,204,0,.18), transparent 55%),
+                  radial-gradient(900px 500px at 90% 15%, rgba(125,243,199,.12), transparent 50%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(11,15,23,.72);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .brand{
+      display:flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand strong{
+      font-size: 16px;
+      letter-spacing: .2px;
+    }
+
+    .brand span{
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .links{
+      display:flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .links a{
+      font-size: 13px;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .links a:hover{
+      border-color: var(--line);
+      background: rgba(255,255,255,.04);
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    main{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 18px 80px;
+      display: grid;
+      gap: 22px;
+    }
+
+    .hero{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px 22px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .hero h1{
+      margin:0;
+      font-size: 34px;
+      line-height: 1.15;
+      letter-spacing: .2px;
+    }
+
+    .subtitle{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .pillrow{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .pill{
+      font-size: 12px;
+      color: var(--text);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+
+    .cta{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .btn.primary{
+      border-color: rgba(183,204,0,.65);
+      background: rgba(183,204,0,.14);
+    }
+
+    .btn:hover{
+      transform: translateY(-1px);
+      transition: transform .15s ease;
+      text-decoration: none;
+    }
+
+    .grid{
+      display:grid;
+      gap: 18px;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: start;
+    }
+
+    @media (max-width: 920px){
+      .grid{ grid-template-columns: 1fr; }
+      .hero h1{ font-size: 30px; }
+    }
+
+    section.card{
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px 18px;
+    }
+
+    section.card h2{
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing: .2px;
+    }
+
+    .muted{ color: var(--muted); }
+
+    ul.clean{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+    ul.clean li{ margin: 7px 0; }
+
+    /* Simple timeline */
+    .timeline{
+      margin-top: 14px;
+      border-left: 2px solid rgba(183,204,0,.45);
+      padding-left: 16px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .t-item{
+      position: relative;
+      padding: 12px 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,255,255,.02);
+    }
+
+    .t-item::before{
+      content:"";
+      position:absolute;
+      left: -25px;
+      top: 16px;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(183,204,0,.18);
+    }
+
+    .t-item .topline{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px 10px;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    .t-item .role{
+      font-weight: 800;
+      letter-spacing: .2px;
+    }
+
+    .t-item .meta{
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .t-item p{
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 22px 18px 30px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+
+    .contactline{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      align-items: center;
+    }
+
+    .kbd{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      padding: 6px 10px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sticky top nav -->
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <strong>Henry Canales</strong>
+        <span>Customer Support • VA • Risk & Compliance • Sales Support</span>
+      </div>
+
+      <nav class="links" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#value">Value</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" aria-label="Hero section">
+      <h1>Remote-ready Customer Support & VA who keeps ops smooth and customers happy.</h1>
+      <p class="subtitle">
+        9+ years supporting global brands across e-commerce, healthcare, telco, fintech, and EV services — with strong
+        experience in multichannel support, CRM/ticketing, order management, and fraud & compliance.
+      </p>
+
+      <div class="pillrow" aria-label="Key strengths">
+        <span class="pill">Email • Chat • Phone Support</span>
+        <span class="pill">Shopify • Gorgias</span>
+        <span class="pill">Salesforce • HubSpot</span>
+        <span class="pill">KYC • Fraud & Risk Review</span>
+        <span class="pill">Process Optimization</span>
+      </div>
+
+      <div class="cta">
+        <a class="btn primary" href="mailto:henrycanales75@gmail.com">Email Me</a>
+        <a class="btn" href="tel:+639812719707">Call / Text</a>
+        <a class="btn" href="#contact">Contact Details</a>
+      </div>
+    </section>
+
+    <div class="grid">
+      <!-- About -->
+      <section id="about" class="card">
+        <h2>About</h2>
+        <p class="muted">
+          I am a Customer Support and Virtual Assistance professional with over 9 years of experience supporting global
+          brands across e-commerce, healthcare, telecommunications, fintech, and EV services.
+        </p>
+        <p class="muted">
+          I focus on delivering high-quality customer experiences while helping businesses maintain efficient, organized
+          operations. My expertise includes multichannel support (phone, email, chat), order management, CRM/ticket
+          management, account support, fraud analysis, and operational assistance.
+        </p>
+        <p class="muted">
+          I’ve supported customers and business operations for companies such as CozyEarth, Stripe, Accenture, Electrify
+          America, T-Mobile, Verizon, Comcast, and Wellcare.
+        </p>
+        <p class="muted">
+          Most recently, I worked as a Customer Service Virtual Assistant supporting an e-commerce brand handling product
+          inquiries, order processing, returns, claims, and escalations using tools like Shopify and Gorgias.
+        </p>
+        <p class="muted">
+          I’m comfortable in remote, fast-paced environments and collaborating via HubSpot, Salesforce, Aircall, Google
+          Workspace, Slack, and Zoom.
+        </p>
+      </section>
+
+      <!-- Value / highlights -->
+      <section id="value" class="card">
+        <h2>What I Bring to the Table</h2>
+        <ul class="clean">
+          <li>9+ years of customer support experience</li>
+          <li>E-commerce customer service (orders, returns, claims, escalations)</li>
+          <li>Fraud detection & compliance (KYC, verification, risk assessment)</li>
+          <li>CRM and ticket management proficiency</li>
+          <li>Strong communication and problem-solving skills</li>
+          <li>Remote work discipline and adaptability</li>
+        </ul>
+
+        <p class="muted" style="margin-top:12px;">
+          My goal is to be a reliable extension of the team—improving customer experience, maintaining operational
+          efficiency, and building long-term client relationships.
+        </p>
+      </section>
+    </div>
+
+    <!-- Experience timeline -->
+    <section id="experience" class="card">
+      <h2>Experience Timeline</h2>
+      <p class="muted">
+        Add your work experiences here (title + company in <strong>bold</strong>, plus a short 1–2 line impact summary).
+      </p>
+
+      <div class="timeline">
+        <!-- Replace these sample entries with your real ones -->
+        <div class="t-item">
+          <div class="topline">
+            <div class="role"><strong>Customer Service Virtual Assistant</strong> — <strong>E-commerce Brand</strong></div>
+            <div class="meta">Most Recent</div>
+          </div>
+          <p>
+            Handled product inquiries, order processing, returns, claims, and escalations using Shopify and Gorgias,
+            ensuring timely and accurate resolutions across email and chat.
+          </p>
+        </div>
+
+        <div class="t-item">
+          <div class="topline">
+            <div class="role"><strong>Fraud & Risk Analyst</strong> — <strong>Stripe / Accenture</strong></div>
+            <div class="meta">Previous</div>
+          </div>
+          <p>
+            Performed KYC verification, document reviews, compliance checks, and risk assessments with high attention to
+            detail and policy adherence.
+          </p>
+        </div>
+
+        <div class="t-item">
+          <div class="topline">
+            <div class="role"><strong>Customer Support Associate</strong> — <strong>Telecom / EV / Healthcare</strong></div>
+            <div class="meta">Earlier Roles</div>
+          </div>
+          <p>
+            Supported customers via phone/email/chat, troubleshot issues, coordinated account support, and maintained
+            accurate documentation in CRM tools.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <p class="muted">Best way to reach me:</p>
+      <div class="contactline">
+        <span class="kbd">Email: <a href="mailto:henrycanales75@gmail.com">henrycanales75@gmail.com</a></span>
+        <span class="kbd">Mobile: <a href="tel:+639812719707">+63 981 271 9707</a></span>
+      </div>
+
+      <div class="cta" style="margin-top:14px;">
+        <a class="btn primary" href="mailto:henrycanales75@gmail.com?subject=Portfolio%20Inquiry">Send Email</a>
+        <a class="btn" href="tel:+639812719707">Call</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="contactline">
+      <span>© <span id="year"></span> Henry Canales</span>
+      <span class="muted">•</span>
+      <span class="muted">Built with HTML + CSS</span>
+    </div>
+  </footer>
+
+  <script>
+    // Auto-update footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
